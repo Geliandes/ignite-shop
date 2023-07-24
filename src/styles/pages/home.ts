@@ -14,7 +14,7 @@ export const Product = styled("div", {
     cursor: 'pointer',
     position: 'relative',
     overflow: 'hidden',
-
+    padding: '2rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -43,13 +43,34 @@ export const Product = styled("div", {
         transition: 'all 0.2s ease-in-out',
 
         strong: {
-            fontSize: '$lg'
+            fontSize: '$lg',
         },
 
         span: {
             fontSize: '$xl',
             fontWeight: 'bold',
-            color: '$green300'
+            color: '$green300',
+        },
+
+        div: {
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.25rem',
+        },
+
+        button: {
+            padding: '0.75rem',
+            borderRadius: 6,
+            display: 'flex',
+            alignItems: 'center',
+            background: '$green500',
+            border: 'none',
+            color: '$white',
+            cursor: 'pointer',
+
+            '&:hover': {
+                background: '$green300',
+            }
         }
     },
 
@@ -57,7 +78,9 @@ export const Product = styled("div", {
         footer: {
             transform: 'translateY(0%)',
             opacity: 1,
-            color: '$gray100'
-        }
+            color: '$gray100',
+        },
+        background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 70%)',
+        boxShadow: '0px 0px 48px 0px rgba(0, 0, 0, 0.90)'
     }
 })
