@@ -5,17 +5,18 @@ import { GetStaticProps } from "next"
 import Head from 'next/head'
 import Link from "next/link"
 import Image from "next/image"
-
 import 'keen-slider/keen-slider.min.css';
 import Stripe from "stripe"
 import { Handbag } from "phosphor-react"
+import { formatPrice } from "../utils/formatPrice"
 
 interface HomeProps {
   products: {
     id: string;
     name: string;
     imageUrl: string;
-    price: string;
+    price: number;
+    defaultPriceId: string;
   }[]
 }
 
@@ -42,7 +43,7 @@ export default function Home({ products }: HomeProps) {
                 <footer>
                   <div>
                     <strong>{product.name}</strong>
-                    <span>{product.price}</span>
+                    <span>{formatPrice(product.price)}</span>
                   </div>
                   
                   <button><Handbag size={32} weight="bold"/></button>
@@ -68,10 +69,8 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      }).format(price.unit_amount / 100)
+      price: price.unit_amount,
+      defaultPriceId: price.id
     }
   })
 

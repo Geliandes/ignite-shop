@@ -11,7 +11,9 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.0.10",
     "@stitches/react": "^1.2.8",
+    "@stripe/stripe-js": "^1.54.1",
     "axios": "^1.4.0",
+    "embla-carousel-react": "^8.0.0-rc11",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "keen-slider": "^6.8.6",
