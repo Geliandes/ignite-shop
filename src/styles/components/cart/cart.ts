@@ -124,12 +124,17 @@ export const DetailsContainer = styled('footer', {
         fontSize: '1.125rem',
         fontWeight: 700,
         color: '$white',
-        cursor: 'pointer',
         marginTop: '3.625rem',
 
-        '&:hover': {
+        '&:not(:disabled):hover': {
             background: '$green300',
-            transition: '.3s'
-        }
+            transition: '.3s',
+            cursor: 'pointer'
+        },
+
+        '&:disabled': {
+            cursor: 'not-allowed',
+            opacity: '0.5'
+        }       
     }
 })

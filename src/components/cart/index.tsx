@@ -28,46 +28,48 @@ export function Cart() {
     }
 
     return(
-        <CartContainer className={openCart && 'openned'}>
-            <HeaderContainer>
-                <X size={24} weight="bold" onClick={handleOpenCart}/>
-            </HeaderContainer>
+        <>
+            <CartContainer className={openCart && 'openned'}>
+                <HeaderContainer>
+                    <X size={24} weight="bold" onClick={handleOpenCart}/>
+                </HeaderContainer>
 
-           <ProductsContainer>
-                <p>Sacola de compras</p>
-                {cartItems.length === 0 ? 
-                    <span>Parece que seu carrinho está vazio :(</span>
-                    :
-                    cartItems.map((product) => {
-                        return(
-                            <Product key={product.id}>
-                                <div className="imageContainer">
-                                    <Image src={product.imageUrl} alt={product.name} width={94} height={94} />
-                                </div>
-                                <div className="itemDescriptionContainer">
-                                    <p className="itemName">{product.name}</p>
-                                    <span className="itemPrice">{formatPrice(product.price)}</span>
-                                    <span className="removeButton" onClick={handleRemoveItem} data-id={product.id}>Remover</span>
-                                </div>
-                            </Product>
-                        )
-                    })
-                }
-                
-                </ProductsContainer>
-                <DetailsContainer>
-                    <div>
-                        <p>Quantidade</p>
-                        <p>{cartItems.length} item(s)</p>
-                    </div>
-                    <div className="totalValueContainer">
-                        <p>Valor total</p>
-                        <p>{formatPrice(totalCart)}</p>
-                    </div>
+            <ProductsContainer>
+                    <p>Sacola de compras</p>
+                    {cartItems.length === 0 ? 
+                        <span>Parece que seu carrinho está vazio :(</span>
+                        :
+                        cartItems.map((product) => {
+                            return(
+                                <Product key={product.id}>
+                                    <div className="imageContainer">
+                                        <Image src={product.imageUrl} alt={product.name} width={94} height={94} />
+                                    </div>
+                                    <div className="itemDescriptionContainer">
+                                        <p className="itemName">{product.name}</p>
+                                        <span className="itemPrice">{formatPrice(product.price)}</span>
+                                        <span className="removeButton" onClick={handleRemoveItem} data-id={product.id}>Remover</span>
+                                    </div>
+                                </Product>
+                            )
+                        })
+                    }
+                    
+                    </ProductsContainer>
+                    <DetailsContainer>
+                        <div>
+                            <p>Quantidade</p>
+                            <p>{cartItems.length} item(s)</p>
+                        </div>
+                        <div className="totalValueContainer">
+                            <p>Valor total</p>
+                            <p>{formatPrice(totalCart)}</p>
+                        </div>
 
-                    <button onClick={handleCheckoutButton}>Finalizar compra</button>
-                </DetailsContainer>
-           
-        </CartContainer>
+                        <button onClick={handleCheckoutButton} disabled={cartItems.length > 0 ? false : true }>Finalizar compra</button>
+                    </DetailsContainer>
+            
+            </CartContainer>
+        </>
     )
 }
