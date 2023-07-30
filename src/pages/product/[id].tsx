@@ -33,9 +33,9 @@ export default function Product({ product }: ProductProps) {
         changeOpenCartWithAnimation()
     }
 
-    if(isFallback) {
-        return 'Loading...'
-    }
+    // if(isFallback) {
+    //     return <p>Loading...</p>
+    // }
 
     const title = `${product.name} | Ignite Shop`
 
@@ -65,15 +65,12 @@ export default function Product({ product }: ProductProps) {
         </>
     )
 }
+
 export const getStaticPaths: GetStaticPaths = async () => {
     // Buscar os produtos mais vendidos / mais acessados
     return {
         paths: [
-            { params: { id: 'prod_OJkUESIwvlboQl' } },
-            { params: { id: 'prod_OJgqywS5F5thru' } },
-            { params: { id: 'prod_OJgpkhL0KLODtz' } },
-            { params: { id: 'prod_OJgpWfUE9ZSiOU' } },
-            { params: { id: 'prod_OJgouUoMnVlpar' } }
+            { params: { id: 'prod_OJgqywS5F5thru' } }
         ],
         fallback: 'blocking',
     }
