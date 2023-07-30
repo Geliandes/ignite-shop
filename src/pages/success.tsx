@@ -76,5 +76,3 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         }
     }
 }
-
-//session_id=cs_test_b1jcbzWafzy5qEDVfddEvo76V9YOFev1sKL57ZJMMcPzvdgRmB9rERaWVI
