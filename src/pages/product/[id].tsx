@@ -33,13 +33,16 @@ export default function Product({ product }: ProductProps) {
         changeOpenCartWithAnimation()
     }
 
-    if(isFallback) {
-        return <p>Loading...</p>
-    }
+    // if(isFallback) {
+    //     return <p>Loading...</p>
+    // }
+
+    const title = `${product.name} | Ignite Shop`
+
     return(
         <>
             <Head>
-                <title>{product.name} | Ignite Shop</title>
+                <title>{title}</title>
             </Head>
 
             <ProductContainer>
@@ -65,7 +68,6 @@ export default function Product({ product }: ProductProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Buscar os produtos mais vendidos / mais acessados
-
     return {
         paths: [
             { params: { id: 'prod_OJgqywS5F5thru' } }
